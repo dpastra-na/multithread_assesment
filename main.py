@@ -5,6 +5,19 @@ from service.repository.repository import FileRepository
 
 import concurrent.futures
 
+
+"""
+This program is a multithreaded application that creates different types of sensors and logs their
+data usinga network and a diferent types of repositories.
+The program starts by initializing a Network object with a maximum number of messages, the requirement
+is 5 and a RepositoryStrategy object. It then creates a Logging object with the previously created
+Network and RepositoryStrategy objects.
+The program then creates a list of sensors using the SensorsFactory class (SameSensorFactory and
+DifferentSensorsFactory are implemnted).
+The program then uses a ThreadPoolExecutor to start the logging and sensor threads concurrently.
+"""
+
+
 if __name__ == "__main__":
     network = Network(max_messages=5)
     repository = FileRepository()
